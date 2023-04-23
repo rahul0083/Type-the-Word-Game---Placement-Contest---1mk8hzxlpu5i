@@ -12,7 +12,6 @@ function App() {
 
   useEffect(()=>{
     const timer=setTimeout(()=>{
-
       setFlashWord(false);
     },500);
 
@@ -36,11 +35,8 @@ function App() {
   const handleRestartClick=()=>{
      setIndex(index+1);
      setFlashWord(true);
-     setResult("");
      setUserInput("");
-    setTimeout(()=>{
-      setFlashWord(false)
-    },500)
+     setResult("");
 
   }
 
@@ -48,13 +44,13 @@ function App() {
     <div className="mini-game-container">
       <h2 className="mini-game-title">Mini Game</h2>
     {flashWord &&  <p className="mini-game-word">{WORD_LIST[index]}</p>}
-      <form className="mini-game-form" onSubmit={handleFormSubmit}>
+   {  !flashWord && !result&&  <form className="mini-game-form" onSubmit={handleFormSubmit}>
         <input className="mini-game-input" type="text" value={userInput} onChange={handleInputChange} />
         <button className="mini-game-button" type="submit">Check Answer</button>
-      </form>
+      </form>}
       {result && (
         <>
-          <p className="mini-game-result">{result}</p>
+         <p className="mini-game-result">{result}</p>
           <button className="mini-game-restart-button" onClick={handleRestartClick}>Restart</button>
         </>
       )}
