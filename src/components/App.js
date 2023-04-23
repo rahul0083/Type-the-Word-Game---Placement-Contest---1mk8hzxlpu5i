@@ -26,10 +26,10 @@ function App() {
 
     event.preventDefault();
     if(userInput.toLowerCase()===WORD_LIST[index]){
-      setResult("You Won!");
+      setResult("You won!");
     }
     else{
-      setResult("You Lost!");
+      setResult("You lost!");
     }
   }
   const handleRestartClick=()=>{
